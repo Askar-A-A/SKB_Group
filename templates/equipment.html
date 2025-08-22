@@ -5,368 +5,511 @@
 {% block main_class %}pt-5{% endblock %}
 
 {% block content %}
-<!-- Page Header -->
-<section class="bg-primary text-white py-5">
-    <div class="container text-center">
-        <h1 class="display-4 fw-bold">Предохранительные клапаны</h1>
-        <p class="lead">Высококачественные предохранительные клапаны от ведущих мировых производителей</p>
+<!-- Minimal Search Header Section -->
+<section class="bg-light py-3">
+    <div class="container">
+        <!-- Simple Title -->
+        <div class="text-center mb-3 mt-4">
+            <h1 class="h4 fw-bold mb-1">Предохранительные клапаны</h1>
+            <p class="text-muted small mb-0">Высококачественные предохранительные клапаны от ведущих мировых производителей</p>
+        </div>
+        
+        <!-- Simple Search Card -->
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-3">
+                        
+                        <!-- Main Search Row -->
+                        <div class="row g-3 align-items-center mb-3">
+                            <!-- Search Input -->
+                            <div class="col-lg-6 col-xl-7">
+                                <div class="input-group">
+                                    <span class="input-group-text bg-white border-1">
+                                        <i class="fas fa-search text-primary"></i>
+                                    </span>
+                                    <input type="text" 
+                                           class="form-control border-1" 
+                                           id="equipmentSearch" 
+                                           placeholder="Поиск по названию, материалу, применению..."
+                                           autocomplete="off">
+                                </div>
+                            </div>
+                            
+                            <!-- Results Counter -->
+                            <div class="col-lg-4 col-xl-3 text-center">
+                                <div class="d-inline-flex align-items-center bg-light px-3 py-2 rounded-pill">
+                                    <i class="fas fa-chart-bar text-primary me-2 small"></i>
+                                    <span class="fw-semibold text-dark small" id="searchResults">
+                                        <span class="text-primary fw-bold" id="resultCount">6</span> из <span class="text-muted" id="totalCount">6</span>
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <!-- Clear Button -->
+                            <div class="col-lg-2">
+                                <button class="btn btn-outline-primary w-100" id="clearSearch">
+                                    <i class="fas fa-times"></i>
+                                    <span class="d-none d-md-inline ms-1">Очистить</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Quick Filter Pills -->
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <small class="text-muted fw-semibold">Фильтры:</small>
+                            </div>
+                            <div class="col">
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-primary quick-filter px-2 py-1" 
+                                          data-filter="нержавеющая сталь" 
+                                          style="cursor: pointer;">
+                                        <i class="fas fa-cog me-1"></i>Нержавеющая сталь
+                                    </span>
+                                    <span class="badge bg-primary quick-filter px-2 py-1" 
+                                          data-filter="латунь" 
+                                          style="cursor: pointer;">
+                                        <i class="fas fa-tools me-1"></i>Латунь
+                                    </span>
+                                    <span class="badge bg-primary quick-filter px-2 py-1" 
+                                          data-filter="газ" 
+                                          style="cursor: pointer;">
+                                        <i class="fas fa-wind me-1"></i>Газы
+                                    </span>
+                                    <span class="badge bg-primary quick-filter px-2 py-1" 
+                                          data-filter="пар" 
+                                          style="cursor: pointer;">
+                                        <i class="fas fa-fire me-1"></i>Пар
+                                    </span>
+                                    <span class="badge bg-primary quick-filter px-2 py-1" 
+                                          data-filter="холодильн" 
+                                          style="cursor: pointer;">
+                                        <i class="fas fa-snowflake me-1"></i>Холодильное
+                                    </span>
+                                    <span class="badge bg-primary quick-filter px-2 py-1" 
+                                          data-filter="медицинск" 
+                                          style="cursor: pointer;">
+                                        <i class="fas fa-heartbeat me-1"></i>Медицинские
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
 <!-- Equipment Section -->
-<section class="py-5">
-    <div class="container">
+<section class="py-5 bg-light">
+    <div class="container" id="equipmentContainer">
         <!-- LGS Pressure Relief Valves -->
-        <div class="row align-items-center mb-5">
+        <div class="row align-items-center mb-5 equipment-item" data-keywords="lgs hi-flow предохранительный клапан rock-seal высокий поток закрытый выпускной резьбовые соединения большие выходы модульная конструкция газ воздух природный кпг спг медицинские технические co2 аммиачное криогенные сжиженные сосуды давление">
             <div class="col-lg-6 mb-4 mb-lg-0">
-                <img src="{{ url_for('static', filename='images/equipment/lgs-couple-front.png') }}" 
-                     class="img-fluid rounded shadow" 
-                     alt="Клапаны сброса давления LGS"
-                     style="width: 100%; height: 300px; object-fit: contain; background: #f8f9fa;">
+                <div class="position-relative">
+                    <img src="{{ url_for('static', filename='images/equipment/lgs-couple-front.png') }}" 
+                         class="img-fluid rounded-3 shadow-sm" 
+                         alt="Клапаны сброса давления LGS"
+                         style="width: 100%; height: 320px; object-fit: contain; background: white; border: 1px solid #e9ecef;">
+                    <div class="position-absolute top-0 start-0 m-3">
+                        <span class="badge bg-success">LGS</span>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-6">
-                <h2 class="mb-3">LGS HI-FLOW</h2>
-                <p class="text-muted mb-4">Предохранительный клапан с технологией Rock-Seal™ и увеличенными выходными отверстиями для высокого потока.</p>
-                
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <h6 class="fw-bold mb-2">Ключевые особенности:</h6>
-                        <ul class="list-unstyled small">
-                            <li class="mb-1">
-                                <i class="fas fa-check text-primary me-1"></i>
-                                Закрытый выпускной клапан
-                            </li>
-                            <li class="mb-1">
-                                <i class="fas fa-check text-primary me-1"></i>
-                                Резьбовые соединения
-                            </li>
-                            <li class="mb-1">
-                                <i class="fas fa-check text-primary me-1"></i>
-                                Большие выходы
-                            </li>
-                            <li class="mb-1">
-                                <i class="fas fa-check text-primary me-1"></i>
-                                Модульная конструкция
-                            </li>
-                        </ul>
-                        
-                        <h6 class="fw-bold mb-2 mt-3">Газовые системы:</h6>
-                        <ul class="list-unstyled small">
-                            <li>• Системы воздух/газ</li>
-                            <li>• Природный газ</li>
-                            <li>• КПГ/СПГ</li>
-                            <li>• Медицинские газы</li>
-                            <li>• Технические газы</li>
-                        </ul>
-                    </div>
+                <div class="bg-white p-4 rounded-3 shadow-sm h-100">
+                    <h2 class="mb-3 text-primary">LGS HI-FLOW</h2>
+                    <p class="text-muted mb-4">Предохранительный клапан с технологией Rock-Seal™ и увеличенными выходными отверстиями для высокого потока.</p>
                     
-                    <div class="col-md-6">
-                        <h6 class="fw-bold mb-2">Технология:</h6>
-                        <ul class="list-unstyled small">
-                            <li class="mb-1">
-                                <i class="fas fa-star text-warning me-1"></i>
-                                Rock-Seal™ уплотнение
-                            </li>
-                            <li class="mb-1">
-                                <i class="fas fa-star text-warning me-1"></i>
-                                Высокий поток
-                            </li>
-                            <li class="mb-1">
-                                <i class="fas fa-star text-warning me-1"></i>
-                                Компактные размеры
-                            </li>
-                        </ul>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <h6 class="fw-bold mb-2 text-dark">Ключевые особенности:</h6>
+                            <ul class="list-unstyled small">
+                                <li class="mb-1">
+                                    <i class="fas fa-check text-success me-1"></i>
+                                    Закрытый выпускной клапан
+                                </li>
+                                <li class="mb-1">
+                                    <i class="fas fa-check text-success me-1"></i>
+                                    Резьбовые соединения
+                                </li>
+                                <li class="mb-1">
+                                    <i class="fas fa-check text-success me-1"></i>
+                                    Большие выходы
+                                </li>
+                                <li class="mb-1">
+                                    <i class="fas fa-check text-success me-1"></i>
+                                    Модульная конструкция
+                                </li>
+                            </ul>
+                            
+                            <h6 class="fw-bold mb-2 mt-3 text-dark">Газовые системы:</h6>
+                            <ul class="list-unstyled small text-muted">
+                                <li>• Системы воздух/газ</li>
+                                <li>• Природный газ</li>
+                                <li>• КПГ/СПГ</li>
+                                <li>• Медицинские газы</li>
+                                <li>• Технические газы</li>
+                            </ul>
+                        </div>
                         
-                        <h6 class="fw-bold mb-2 mt-3">Специальные применения:</h6>
-                        <ul class="list-unstyled small">
-                            <li>• Сосуды под давлением</li>
-                            <li>• CO2-охлаждение</li>
-                            <li>• Аммиачное охлаждение</li>
-                            <li>• Криогенные применения</li>
-                            <li>• Сжиженные газы</li>
-                        </ul>
+                        <div class="col-md-6">
+                            <h6 class="fw-bold mb-2 text-dark">Технология:</h6>
+                            <ul class="list-unstyled small">
+                                <li class="mb-1">
+                                    <i class="fas fa-star text-warning me-1"></i>
+                                    Rock-Seal™ уплотнение
+                                </li>
+                                <li class="mb-1">
+                                    <i class="fas fa-star text-warning me-1"></i>
+                                    Высокий поток
+                                </li>
+                                <li class="mb-1">
+                                    <i class="fas fa-star text-warning me-1"></i>
+                                    Компактные размеры
+                                </li>
+                            </ul>
+                            
+                            <h6 class="fw-bold mb-2 mt-3 text-dark">Специальные применения:</h6>
+                            <ul class="list-unstyled small text-muted">
+                                <li>• Сосуды под давлением</li>
+                                <li>• CO2-охлаждение</li>
+                                <li>• Аммиачное охлаждение</li>
+                                <li>• Криогенные применения</li>
+                                <li>• Сжиженные газы</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         
         <!-- Type 936 Threaded Safety Valves -->
-        <div class="row align-items-center mb-5">
+        <div class="row align-items-center mb-5 equipment-item" data-keywords="тип 936 резьбовой предохранительный клапан латунь бронза пружинный привод криогенные сжиженные газы закрытый выпускной резьбовые соединения уплотнение металл компрессоры сосуды давление медицинские технические тепловой рельеф паровые системы">
             <div class="col-lg-6 mb-4 mb-lg-0">
-                <img src="{{ url_for('static', filename='images/equipment/data-956-threaded-slim.png') }}" 
-                     class="img-fluid rounded shadow" 
-                     alt="Тип 936 Резьбовой предохранительный клапан"
-                     style="width: 100%; height: 300px; object-fit: contain; background: #f8f9fa;">
+                <div class="position-relative">
+                    <img src="{{ url_for('static', filename='images/equipment/data-956-threaded-slim.png') }}" 
+                         class="img-fluid rounded-3 shadow-sm" 
+                         alt="Тип 936 Резьбовой предохранительный клапан"
+                         style="width: 100%; height: 320px; object-fit: contain; background: white; border: 1px solid #e9ecef;">
+                    <div class="position-absolute top-0 start-0 m-3">
+                        <span class="badge bg-warning text-dark">Type 936</span>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-6">
-                <h2 class="mb-3">Тип 936 Резьбовой</h2>
-                <p class="text-muted mb-4">Предохранительные клапаны закрытого типа с прямым пружинным приводом для криогенных и сжиженных газов.</p>
-                
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <h6 class="fw-bold mb-2">Конструкция:</h6>
-                        <ul class="list-unstyled small">
-                            <li class="mb-1">
-                                <i class="fas fa-check text-primary me-1"></i>
-                                Латунные входные отверстия
-                            </li>
-                            <li class="mb-1">
-                                <i class="fas fa-check text-primary me-1"></i>
-                                Закрытый выпускной клапан
-                            </li>
-                            <li class="mb-1">
-                                <i class="fas fa-check text-primary me-1"></i>
-                                Резьбовые соединения
-                            </li>
-                            <li class="mb-1">
-                                <i class="fas fa-check text-primary me-1"></i>
-                                Уплотнение металл-металл
-                            </li>
-                        </ul>
-                        
-                        <h6 class="fw-bold mb-2 mt-3">Технические характеристики:</h6>
-                        <ul class="list-unstyled small">
-                            <li>• Диаметр: 10-25 мм</li>
-                            <li>• Материал: Латунь/Бронза</li>
-                            <li>• Пружинный привод</li>
-                        </ul>
-                    </div>
+                <div class="bg-white p-4 rounded-3 shadow-sm h-100">
+                    <h2 class="mb-3 text-primary">Тип 936 Резьбовой</h2>
+                    <p class="text-muted mb-4">Предохранительные клапаны закрытого типа с прямым пружинным приводом для криогенных и сжиженных газов.</p>
                     
-                    <div class="col-md-6">
-                        <h6 class="fw-bold mb-2">Применения:</h6>
-                        <ul class="list-unstyled small">
-                            <li>• Воздушные/газовые компрессоры</li>
-                            <li>• Сосуды под давлением</li>
-                            <li>• Медицинские газы</li>
-                            <li>• Технические газы</li>
-                            <li>• Тепловой рельеф</li>
-                            <li>• Паровые системы</li>
-                        </ul>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <h6 class="fw-bold mb-2 text-dark">Конструкция:</h6>
+                            <ul class="list-unstyled small">
+                                <li class="mb-1">
+                                    <i class="fas fa-check text-success me-1"></i>
+                                    Латунные входные отверстия
+                                </li>
+                                <li class="mb-1">
+                                    <i class="fas fa-check text-success me-1"></i>
+                                    Закрытый выпускной клапан
+                                </li>
+                                <li class="mb-1">
+                                    <i class="fas fa-check text-success me-1"></i>
+                                    Резьбовые соединения
+                                </li>
+                                <li class="mb-1">
+                                    <i class="fas fa-check text-success me-1"></i>
+                                    Уплотнение металл-металл
+                                </li>
+                            </ul>
+                            
+                            <h6 class="fw-bold mb-2 mt-3 text-dark">Технические характеристики:</h6>
+                            <ul class="list-unstyled small text-muted">
+                                <li>• Диаметр: 10-25 мм</li>
+                                <li>• Материал: Латунь/Бронза</li>
+                                <li>• Пружинный привод</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h6 class="fw-bold mb-2 text-dark">Применения:</h6>
+                            <ul class="list-unstyled small text-muted">
+                                <li>• Воздушные/газовые компрессоры</li>
+                                <li>• Сосуды под давлением</li>
+                                <li>• Медицинские газы</li>
+                                <li>• Технические газы</li>
+                                <li>• Тепловой рельеф</li>
+                                <li>• Паровые системы</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         
         <!-- Type 646 Refrigeration Unit -->
-        <div class="row align-items-center mb-5">
+        <div class="row align-items-center mb-5 equipment-item" data-keywords="холодильная установка тип 646 нержавеющая сталь закрытый предохранительный клапан сброс давление холодильная техника резьбовые соединения холодильные компрессоры промышленное охлаждение коммерческое лед кондиционеры">
             <div class="col-lg-6 mb-4 mb-lg-0">
-                <img src="{{ url_for('static', filename='images/equipment/hero-646-slim.png') }}" 
-                     class="img-fluid rounded shadow" 
-                     alt="Холодильная установка типа 646"
-                     style="width: 100%; height: 300px; object-fit: contain; background: #f8f9fa;">
+                <div class="position-relative">
+                    <img src="{{ url_for('static', filename='images/equipment/hero-646-slim.png') }}" 
+                         class="img-fluid rounded-3 shadow-sm" 
+                         alt="Холодильная установка типа 646"
+                         style="width: 100%; height: 320px; object-fit: contain; background: white; border: 1px solid #e9ecef;">
+                    <div class="position-absolute top-0 start-0 m-3">
+                        <span class="badge bg-info">Type 646</span>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-6">
-                <h2 class="mb-3">Холодильная установка типа 646</h2>
-                <p class="text-muted mb-4">Закрытый предохранительный клапан сброса давления для холодильной техники.</p>
-                
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <h6 class="fw-bold mb-2">Конструкция:</h6>
-                        <ul class="list-unstyled small">
-                            <li class="mb-1">
-                                <i class="fas fa-check text-primary me-1"></i>
-                                Корпус из нержавеющей стали
-                            </li>
-                            <li class="mb-1">
-                                <i class="fas fa-check text-primary me-1"></i>
-                                Закрытый выпускной клапан
-                            </li>
-                            <li class="mb-1">
-                                <i class="fas fa-check text-primary me-1"></i>
-                                Резьбовые соединения
-                            </li>
-                        </ul>
-                        
-                        <h6 class="fw-bold mb-2 mt-3">Технические характеристики:</h6>
-                        <ul class="list-unstyled small">
-                            <li>• Диаметр: 10, 13, 18 мм</li>
-                            <li>• Материал: Нержавеющая сталь</li>
-                            <li>• Альтернатива: тип 636 (латунь)</li>
-                        </ul>
-                    </div>
+                <div class="bg-white p-4 rounded-3 shadow-sm h-100">
+                    <h2 class="mb-3 text-primary">Холодильная установка типа 646</h2>
+                    <p class="text-muted mb-4">Закрытый предохранительный клапан сброса давления для холодильной техники.</p>
                     
-                    <div class="col-md-6">
-                        <h6 class="fw-bold mb-2">Применения:</h6>
-                        <ul class="list-unstyled small">
-                            <li>• Производство холодильных компрессоров</li>
-                            <li>• Промышленное охлаждение</li>
-                            <li>• Коммерческое охлаждение</li>
-                            <li>• Оборудование для производства льда</li>
-                            <li>• Кондиционеры</li>
-                        </ul>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <h6 class="fw-bold mb-2 text-dark">Конструкция:</h6>
+                            <ul class="list-unstyled small">
+                                <li class="mb-1">
+                                    <i class="fas fa-check text-success me-1"></i>
+                                    Корпус из нержавеющей стали
+                                </li>
+                                <li class="mb-1">
+                                    <i class="fas fa-check text-success me-1"></i>
+                                    Закрытый выпускной клапан
+                                </li>
+                                <li class="mb-1">
+                                    <i class="fas fa-check text-success me-1"></i>
+                                    Резьбовые соединения
+                                </li>
+                            </ul>
+                            
+                            <h6 class="fw-bold mb-2 mt-3 text-dark">Технические характеристики:</h6>
+                            <ul class="list-unstyled small text-muted">
+                                <li>• Диаметр: 10, 13, 18 мм</li>
+                                <li>• Материал: Нержавеющая сталь</li>
+                                <li>• Альтернатива: тип 636 (латунь)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h6 class="fw-bold mb-2 text-dark">Применения:</h6>
+                            <ul class="list-unstyled small text-muted">
+                                <li>• Производство холодильных компрессоров</li>
+                                <li>• Промышленное охлаждение</li>
+                                <li>• Коммерческое охлаждение</li>
+                                <li>• Оборудование для производства льда</li>
+                                <li>• Кондиционеры</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         
         <!-- Type 946 Threaded -->
-        <div class="row align-items-center mb-5">
+        <div class="row align-items-center mb-5 equipment-item" data-keywords="тип 946 резьбовой предохранительный клапан прямой сброс пар пружинный привод нержавеющая сталь закрытый выпускной резьбовые соединения уплотнение металл компрессоры сосуды давление медицинские технические газы холодильное оборудование тепловой рельеф паровые системы водород">
             <div class="col-lg-6 mb-4 mb-lg-0">
-                <img src="{{ url_for('static', filename='images/equipment/Type-946-Threaded-s-sm3.png') }}" 
-                     class="img-fluid rounded shadow" 
-                     alt="Тип 946 Резьбовой"
-                     style="width: 100%; height: 300px; object-fit: contain; background: #f8f9fa;">
+                <div class="position-relative">
+                    <img src="{{ url_for('static', filename='images/equipment/Type-946-Threaded-s-sm3.png') }}" 
+                         class="img-fluid rounded-3 shadow-sm" 
+                         alt="Тип 946 Резьбовой"
+                         style="width: 100%; height: 320px; object-fit: contain; background: white; border: 1px solid #e9ecef;">
+                    <div class="position-absolute top-0 start-0 m-3">
+                        <span class="badge bg-secondary">Type 946</span>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-6">
-                <h2 class="mb-3">Тип 946 Резьбовой</h2>
-                <p class="text-muted mb-4">Предохранительный клапан прямого сброса пара с пружинным приводом, изготовленный из нержавеющей стали.</p>
-                
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <h6 class="fw-bold mb-2">Конструкция:</h6>
-                        <ul class="list-unstyled small">
-                            <li class="mb-1">
-                                <i class="fas fa-check text-primary me-1"></i>
-                                Корпус из нержавеющей стали
-                            </li>
-                            <li class="mb-1">
-                                <i class="fas fa-check text-primary me-1"></i>
-                                Закрытый выпускной клапан
-                            </li>
-                            <li class="mb-1">
-                                <i class="fas fa-check text-primary me-1"></i>
-                                Резьбовые соединения
-                            </li>
-                            <li class="mb-1">
-                                <i class="fas fa-check text-primary me-1"></i>
-                                Уплотнение металл-металл
-                            </li>
-                        </ul>
-                        
-                        <h6 class="fw-bold mb-2 mt-3">Характеристики:</h6>
-                        <ul class="list-unstyled small">
-                            <li>• Диаметр: 10-25 мм</li>
-                            <li>• Прямой сброс пара</li>
-                            <li>• Пружинный привод</li>
-                        </ul>
-                    </div>
+                <div class="bg-white p-4 rounded-3 shadow-sm h-100">
+                    <h2 class="mb-3 text-primary">Тип 946 Резьбовой</h2>
+                    <p class="text-muted mb-4">Предохранительный клапан прямого сброса пара с пружинным приводом, изготовленный из нержавеющей стали.</p>
                     
-                    <div class="col-md-6">
-                        <h6 class="fw-bold mb-2">Применения:</h6>
-                        <ul class="list-unstyled small">
-                            <li>• Воздушные/газовые компрессоры</li>
-                            <li>• Сосуды под давлением</li>
-                            <li>• Медицинские/технические газы</li>
-                            <li>• Холодильное оборудование</li>
-                            <li>• Тепловой рельеф</li>
-                            <li>• Паровые системы</li>
-                            <li>• Водород</li>
-                        </ul>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <h6 class="fw-bold mb-2 text-dark">Конструкция:</h6>
+                            <ul class="list-unstyled small">
+                                <li class="mb-1">
+                                    <i class="fas fa-check text-success me-1"></i>
+                                    Корпус из нержавеющей стали
+                                </li>
+                                <li class="mb-1">
+                                    <i class="fas fa-check text-success me-1"></i>
+                                    Закрытый выпускной клапан
+                                </li>
+                                <li class="mb-1">
+                                    <i class="fas fa-check text-success me-1"></i>
+                                    Резьбовые соединения
+                                </li>
+                                <li class="mb-1">
+                                    <i class="fas fa-check text-success me-1"></i>
+                                    Уплотнение металл-металл
+                                </li>
+                            </ul>
+                            
+                            <h6 class="fw-bold mb-2 mt-3 text-dark">Характеристики:</h6>
+                            <ul class="list-unstyled small text-muted">
+                                <li>• Диаметр: 10-25 мм</li>
+                                <li>• Прямой сброс пара</li>
+                                <li>• Пружинный привод</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h6 class="fw-bold mb-2 text-dark">Применения:</h6>
+                            <ul class="list-unstyled small text-muted">
+                                <li>• Воздушные/газовые компрессоры</li>
+                                <li>• Сосуды под давлением</li>
+                                <li>• Медицинские/технические газы</li>
+                                <li>• Холодильное оборудование</li>
+                                <li>• Тепловой рельеф</li>
+                                <li>• Паровые системы</li>
+                                <li>• Водород</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         
         <!-- Type 75008 -->
-        <div class="row align-items-center mb-5">
+        <div class="row align-items-center mb-5 equipment-item" data-keywords="тип 75008 предохранительный клапан сброс давление пар латунь атмосферный сброс резьбовые соединения диаметр 8мм малые паровые суда кофемашины автоклавы стерилизаторы котлы">
             <div class="col-lg-6 mb-4 mb-lg-0">
-                <img src="{{ url_for('static', filename='images/equipment/DATA-75008-2.png') }}" 
-                     class="img-fluid rounded shadow" 
-                     alt="Тип 75008"
-                     style="width: 100%; height: 300px; object-fit: contain; background: #f8f9fa;">
+                <div class="position-relative">
+                    <img src="{{ url_for('static', filename='images/equipment/DATA-75008-2.png') }}" 
+                         class="img-fluid rounded-3 shadow-sm" 
+                         alt="Тип 75008"
+                         style="width: 100%; height: 320px; object-fit: contain; background: white; border: 1px solid #e9ecef;">
+                    <div class="position-absolute top-0 start-0 m-3">
+                        <span class="badge bg-dark">Type 75008</span>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-6">
-                <h2 class="mb-3">Тип 75008</h2>
-                <p class="text-muted mb-4">Предохранительный клапан сброса давления пара с номинальным диаметром 8 мм.</p>
-                
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <h6 class="fw-bold mb-2">Конструкция:</h6>
-                        <ul class="list-unstyled small">
-                            <li class="mb-1">
-                                <i class="fas fa-check text-primary me-1"></i>
-                                Корпус из латуни
-                            </li>
-                            <li class="mb-1">
-                                <i class="fas fa-check text-primary me-1"></i>
-                                Атмосферный сброс
-                            </li>
-                            <li class="mb-1">
-                                <i class="fas fa-check text-primary me-1"></i>
-                                Резьбовые соединения
-                            </li>
-                            <li class="mb-1">
-                                <i class="fas fa-check text-primary me-1"></i>
-                                Диаметр 8 мм
-                            </li>
-                        </ul>
-                    </div>
+                <div class="bg-white p-4 rounded-3 shadow-sm h-100">
+                    <h2 class="mb-3 text-primary">Тип 75008</h2>
+                    <p class="text-muted mb-4">Предохранительный клапан сброса давления пара с номинальным диаметром 8 мм.</p>
                     
-                    <div class="col-md-6">
-                        <h6 class="fw-bold mb-2">Применения:</h6>
-                        <ul class="list-unstyled small">
-                            <li>• Малые паровые суда</li>
-                            <li>• Промышленные кофемашины</li>
-                            <li>• Автоклавы / Паровые стерилизаторы</li>
-                            <li>• Малые паровые котлы</li>
-                        </ul>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <h6 class="fw-bold mb-2 text-dark">Конструкция:</h6>
+                            <ul class="list-unstyled small">
+                                <li class="mb-1">
+                                    <i class="fas fa-check text-success me-1"></i>
+                                    Корпус из латуни
+                                </li>
+                                <li class="mb-1">
+                                    <i class="fas fa-check text-success me-1"></i>
+                                    Атмосферный сброс
+                                </li>
+                                <li class="mb-1">
+                                    <i class="fas fa-check text-success me-1"></i>
+                                    Резьбовые соединения
+                                </li>
+                                <li class="mb-1">
+                                    <i class="fas fa-check text-success me-1"></i>
+                                    Диаметр 8 мм
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h6 class="fw-bold mb-2 text-dark">Применения:</h6>
+                            <ul class="list-unstyled small text-muted">
+                                <li>• Малые паровые суда</li>
+                                <li>• Промышленные кофемашины</li>
+                                <li>• Автоклавы / Паровые стерилизаторы</li>
+                                <li>• Малые паровые котлы</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         
         <!-- Type 6Г6/6Г1 -->
-        <div class="row align-items-center mb-5">
+        <div class="row align-items-center mb-5 equipment-item" data-keywords="тип 6г6 6г1 закрытый предохранительный клапан сжатый воздух газы чистота гигиенические нержавеющая сталь tri-clamp диаметр 10мм 13мм продукты питания медицинские технические газы паровые системы сосуды давление">
             <div class="col-lg-6 mb-4 mb-lg-0">
-                <img src="{{ url_for('static', filename='images/equipment/data-6g6.png') }}" 
-                     class="img-fluid rounded shadow" 
-                     alt="Тип 6Г6/6Г1"
-                     style="width: 100%; height: 300px; object-fit: contain; background: #f8f9fa;">
-            </div>
-            <div class="col-lg-6">
-                <h2 class="mb-3">Тип 6Г6/6Г1</h2>
-                <p class="text-muted mb-4">Закрытый предохранительный клапан для сжатого воздуха и газов — для работы в условиях чистоты.</p>
-                
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <h6 class="fw-bold mb-2">Конструкция:</h6>
-                        <ul class="list-unstyled small">
-                            <li class="mb-1">
-                                <i class="fas fa-check text-primary me-1"></i>
-                                Корпус из нержавеющей стали
-                            </li>
-                            <li class="mb-1">
-                                <i class="fas fa-check text-primary me-1"></i>
-                                Закрытый выпускной клапан
-                            </li>
-                            <li class="mb-1">
-                                <i class="fas fa-check text-primary me-1"></i>
-                                Соединения Tri-Clamp
-                            </li>
-                            <li class="mb-1">
-                                <i class="fas fa-check text-primary me-1"></i>
-                                Диаметр 10 или 13 мм
-                            </li>
-                        </ul>
-                        
-                        <h6 class="fw-bold mb-2 mt-3">Гигиенические применения:</h6>
-                        <ul class="list-unstyled small">
-                            <li>• Заводы по производству продуктов питания</li>
-                            <li>• Гигиенические применения</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="col-md-6">
-                        <h6 class="fw-bold mb-2">Газовые системы:</h6>
-                        <ul class="list-unstyled small">
-                            <li>• Сжатый воздух или газ</li>
-                            <li>• Медицинские газы</li>
-                            <li>• Технические газы</li>
-                            <li>• Паровые системы</li>
-                        </ul>
-                        
-                        <h6 class="fw-bold mb-2 mt-3">Промышленные:</h6>
-                        <ul class="list-unstyled small">
-                            <li>• Сосуды под давлением</li>
-                        </ul>
+                <div class="position-relative">
+                    <img src="{{ url_for('static', filename='images/equipment/data-6g6.png') }}" 
+                         class="img-fluid rounded-3 shadow-sm" 
+                         alt="Тип 6Г6/6Г1"
+                         style="width: 100%; height: 320px; object-fit: contain; background: white; border: 1px solid #e9ecef;">
+                    <div class="position-absolute top-0 start-0 m-3">
+                        <span class="badge bg-danger">Type 6Г6/6Г1</span>
                     </div>
                 </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="bg-white p-4 rounded-3 shadow-sm h-100">
+                    <h2 class="mb-3 text-primary">Тип 6Г6/6Г1</h2>
+                    <p class="text-muted mb-4">Закрытый предохранительный клапан для сжатого воздуха и газов — для работы в условиях чистоты.</p>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <h6 class="fw-bold mb-2 text-dark">Конструкция:</h6>
+                            <ul class="list-unstyled small">
+                                <li class="mb-1">
+                                    <i class="fas fa-check text-success me-1"></i>
+                                    Корпус из нержавеющей стали
+                                </li>
+                                <li class="mb-1">
+                                    <i class="fas fa-check text-success me-1"></i>
+                                    Закрытый выпускной клапан
+                                </li>
+                                <li class="mb-1">
+                                    <i class="fas fa-check text-success me-1"></i>
+                                    Соединения Tri-Clamp
+                                </li>
+                                <li class="mb-1">
+                                    <i class="fas fa-check text-success me-1"></i>
+                                    Диаметр 10 или 13 мм
+                                </li>
+                            </ul>
+                            
+                            <h6 class="fw-bold mb-2 mt-3 text-dark">Гигиенические применения:</h6>
+                            <ul class="list-unstyled small text-muted">
+                                <li>• Заводы по производству продуктов питания</li>
+                                <li>• Гигиенические применения</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h6 class="fw-bold mb-2 text-dark">Газовые системы:</h6>
+                            <ul class="list-unstyled small text-muted">
+                                <li>• Сжатый воздух или газ</li>
+                                <li>• Медицинские газы</li>
+                                <li>• Технические газы</li>
+                                <li>• Паровые системы</li>
+                            </ul>
+                            
+                            <h6 class="fw-bold mb-2 mt-3 text-dark">Промышленные:</h6>
+                            <ul class="list-unstyled small text-muted">
+                                <li>• Сосуды под давлением</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- No Results Message -->
+        <div id="noResults" class="text-center py-5" style="display: none;">
+            <div class="bg-white p-5 rounded-3 shadow-sm mx-auto" style="max-width: 500px;">
+                <i class="fas fa-search fa-4x text-muted mb-4"></i>
+                <h4 class="text-muted mb-3">Ничего не найдено</h4>
+                <p class="text-muted mb-4">Попробуйте изменить поисковый запрос или воспользуйтесь быстрыми фильтрами</p>
+                <button class="btn btn-primary btn-lg px-4" id="showAllEquipment">
+                    <i class="fas fa-list me-2"></i>Показать все оборудование
+                </button>
             </div>
         </div>
     </div>
 </section>
 
-<!-- CTA Section -->
+<!-- CTA Section - Glued to Footer -->
 <section class="bg-primary text-white py-5">
     <div class="container text-center">
         <h2 class="display-6 fw-bold mb-4">Нужна Консультация по Оборудованию?</h2>
@@ -381,4 +524,162 @@
         </div>
     </div>
 </section>
+
+<!-- Simple JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('equipmentSearch');
+    const clearButton = document.getElementById('clearSearch');
+    const quickFilters = document.querySelectorAll('.quick-filter');
+    const equipmentItems = document.querySelectorAll('.equipment-item');
+    const noResults = document.getElementById('noResults');
+    const resultCount = document.getElementById('resultCount');
+    const totalCount = document.getElementById('totalCount');
+    const showAllButton = document.getElementById('showAllEquipment');
+    
+    // Set total count
+    totalCount.textContent = equipmentItems.length;
+    
+    // Search function
+    function performSearch(query) {
+        query = query.toLowerCase().trim();
+        let visibleCount = 0;
+        
+        equipmentItems.forEach(item => {
+            const keywords = item.getAttribute('data-keywords').toLowerCase();
+            const isVisible = keywords.includes(query);
+            
+            if (isVisible) {
+                item.style.display = ''; // Remove inline style to keep original layout
+                visibleCount++;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+        
+        // Update result counter
+        resultCount.textContent = visibleCount;
+        
+        // Show/hide no results message
+        if (visibleCount === 0 && query !== '') {
+            noResults.style.display = 'block';
+        } else {
+            noResults.style.display = 'none';
+        }
+        
+        // Highlight search term
+        if (query !== '') {
+            highlightSearchTerm(query);
+        }
+    }
+    
+    // Highlight search terms in results
+    function highlightSearchTerm(term) {
+        const regex = new RegExp(`(${term})`, 'gi');
+        equipmentItems.forEach(item => {
+            if (item.style.display !== 'none') {
+                const textElements = item.querySelectorAll('h2, p, li');
+                textElements.forEach(el => {
+                    const originalText = el.textContent;
+                    const highlightedText = originalText.replace(regex, '<mark class="bg-warning rounded px-1">$1</mark>');
+                    if (highlightedText !== originalText) {
+                        el.innerHTML = highlightedText;
+                    }
+                });
+            }
+        });
+    }
+    
+    // Remove highlights
+    function removeHighlights() {
+        const highlights = document.querySelectorAll('mark.bg-warning');
+        highlights.forEach(mark => {
+            const parent = mark.parentNode;
+            parent.replaceChild(document.createTextNode(mark.textContent), mark);
+        });
+    }
+    
+    // Reset search
+    function resetSearch() {
+        removeHighlights();
+        equipmentItems.forEach(item => {
+            item.style.display = ''; // Remove inline style to restore original display
+        });
+        noResults.style.display = 'none';
+        resultCount.textContent = equipmentItems.length;
+        searchInput.value = '';
+        
+        // Remove active state from quick filters
+        quickFilters.forEach(filter => {
+            filter.classList.remove('bg-success');
+            filter.classList.add('bg-primary');
+        });
+    }
+    
+    // Search input event
+    searchInput.addEventListener('input', function() {
+        removeHighlights();
+        performSearch(this.value);
+        
+        // Remove active state from quick filters when typing
+        quickFilters.forEach(filter => {
+            filter.classList.remove('bg-success');
+            filter.classList.add('bg-primary');
+        });
+    });
+    
+    // Clear button
+    clearButton.addEventListener('click', resetSearch);
+    
+    // Show all button
+    showAllButton.addEventListener('click', resetSearch);
+    
+    // Quick filter buttons
+    quickFilters.forEach(filter => {
+        filter.addEventListener('click', function() {
+            const filterTerm = this.getAttribute('data-filter');
+            
+            // Toggle active state
+            if (this.classList.contains('bg-success')) {
+                resetSearch();
+            } else {
+                // Reset other filters
+                quickFilters.forEach(f => {
+                    f.classList.remove('bg-success');
+                    f.classList.add('bg-primary');
+                });
+                
+                // Activate this filter
+                this.classList.remove('bg-primary');
+                this.classList.add('bg-success');
+                
+                // Perform search
+                searchInput.value = filterTerm;
+                removeHighlights();
+                performSearch(filterTerm);
+            }
+        });
+    });
+    
+    // Enter key to focus first result
+    searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            const firstVisible = document.querySelector('.equipment-item[style=""], .equipment-item:not([style*="display: none"])');
+            if (firstVisible) {
+                firstVisible.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    });
+});
+</script>
+{% endblock %}
+
+<!-- Override footer margin for this page -->
+{% block extra_head %}
+<style>
+footer.bg-dark {
+    margin-top: 0 !important;
+}
+</style>
 {% endblock %}
