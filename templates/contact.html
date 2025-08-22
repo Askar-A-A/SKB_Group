@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block title %}Контакты{% endblock %}
+
+{% block main_class %}pt-5{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="bg-primary text-white py-5">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold">Свяжитесь с Нами</h1>
+        <p class="lead">Мы готовы обсудить ваши потребности в компрессорном оборудовании</p>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-5">
+            <!-- Contact Form -->
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-5">
+                        <h3 class="card-title mb-4">Отправьте нам сообщение</h3>
+                        
+                        <form method="POST">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="name" class="form-label">Ваше имя *</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email адрес *</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <label for="company" class="form-label">Компания/Организация</label>
+                                    <input type="text" class="form-control" id="company" name="company">
+                                </div>
+                                
+                                <div class="col-12">
+                                    <label for="service" class="form-label">Интересующая услуга</label>
+                                    <select class="form-select" id="service" name="service">
+                                        <option value="">Выберите услугу...</option>
+                                        <option value="equipment-supply">Поставка оборудования</option>
+                                        <option value="technical-service">Техническое обслуживание</option>
+                                        <option value="commissioning">Пусконаладочные работы</option>
+                                        <option value="design">Проектирование</option>
+                                        <option value="training">Обучение персонала</option>
+                                        <option value="consultation">Консультационные услуги</option>
+                                        <option value="other">Другое</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <label for="message" class="form-label">Сообщение *</label>
+                                    <textarea class="form-control" id="message" name="message" rows="5" required placeholder="Расскажите о вашем проекте, требованиях и сроках..."></textarea>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <i class="fas fa-paper-plane me-2"></i>Отправить Сообщение
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h4 class="card-title mb-4">Контактная информация</h4>
+                        
+                        <div class="contact-item mb-4">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-envelope fa-2x text-primary me-3 mt-1"></i>
+                                <div>
+                                    <h6 class="mb-1">Email</h6>
+                                    <p class="text-muted mb-0">skb.group@mail.ru</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item mb-4">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-phone fa-2x text-primary me-3 mt-1"></i>
+                                <div>
+                                    <h6 class="mb-1">Телефон</h6>
+                                    <p class="text-muted mb-0">+7 (705) 254 3361</p>
+                                    <p class="text-muted mb-0">+7 (702) 179 1253</p>
+                                    <p class="text-muted">Пн-Пт 9:00-18:00 (по времени Астаны)</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item mb-4">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-map-marker-alt fa-2x text-primary me-3 mt-1"></i>
+                                <div>
+                                    <h6 class="mb-1">Офис</h6>
+                                    <p class="text-muted mb-0">г. Астана</p>
+                                    <p class="text-muted">ул. Кумисбекова, 8, ВП 9</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-clock fa-2x text-primary me-3 mt-1"></i>
+                                <div>
+                                    <h6 class="mb-1">Время ответа</h6>
+                                    <p class="text-muted mb-0">В течение 24 часов</p>
+                                    <p class="text-muted">Обычно в течение 2-4 часов</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

@@ -1,0 +1,331 @@
+/* Custom CSS for SANAS Presentation Website */
+
+/* Root Variables */
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #0dcaf0;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+}
+
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+}
+
+/* Utility Classes */
+.min-vh-75 {
+    min-height: 75vh;
+}
+
+.opacity-75 {
+    opacity: 0.75 !important;
+}
+
+/* Navigation Styles */
+.navbar-brand {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0a58ca 100%);
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+/* Card Styles */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 15px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-body {
+    position: relative;
+}
+
+/* Button Styles */
+.btn {
+    border-radius: 25px;
+    padding: 12px 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-lg {
+    padding: 15px 40px;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary-color), #0a58ca);
+    border: none;
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, #0a58ca, var(--primary-color));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(13, 110, 253, 0.4);
+}
+
+.btn-outline-light:hover {
+    background-color: white;
+    color: var(--primary-color);
+    border-color: white;
+}
+
+/* Icon Styles */
+.fas, .fab {
+    transition: transform 0.3s ease;
+}
+
+.card:hover .fas {
+    transform: scale(1.1);
+}
+
+/* Social Links */
+.social-links a {
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+    color: var(--primary-color) !important;
+}
+
+/* Contact Form Styles */
+.form-control {
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+    padding: 12px 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.form-select {
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+    padding: 12px 15px;
+}
+
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Contact Items */
+.contact-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.contact-item:last-child {
+    border-bottom: none;
+}
+
+/* Accordion Styles */
+.accordion-button:not(.collapsed) {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.accordion-button:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Footer Styles */
+footer {
+    margin-top: auto;
+}
+
+/* Animation Classes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Process Section Styles */
+.bg-white.rounded-circle {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.bg-white.rounded-circle:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 60vh;
+        text-align: center;
+    }
+    
+    .display-4 {
+        font-size: 2.5rem;
+    }
+    
+    .btn-lg {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+    }
+    
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .lead {
+        font-size: 1rem;
+    }
+    
+    .card-body {
+        padding: 1.5rem !important;
+    }
+}
+
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0a58ca;
+} 
+
+/* Language Switcher Styling */
+.dropdown-menu .dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+.flag-icon {
+    width: 20px;
+    height: 15px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.flag-icon-ru {
+    background: linear-gradient(to bottom, white 33%, blue 33%, blue 66%, red 66%);
+}
+
+.flag-icon-kz {
+    background: linear-gradient(to bottom, #00AFCA 50%, #FFDA44 50%);
+}
+
+.flag-icon-us {
+    background: linear-gradient(to bottom, #FF0000 14%, white 14%, white 28%, #FF0000 28%, #FF0000 42%, white 42%, white 56%, #FF0000 56%, #FF0000 70%, white 70%, white 84%, #FF0000 84%);
+}
+
+/* Language persistence styling */
+.navbar-nav .nav-link.active {
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 0.25rem;
+}
+
+/* Mobile language switcher */
+@media (max-width: 991px) {
+    .dropdown-menu {
+        position: static !important;
+        float: none;
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+    }
+    
+    .dropdown-menu .dropdown-item {
+        color: rgba(255,255,255,0.75);
+        padding: 0.5rem 0;
+    }
+    
+    .dropdown-menu .dropdown-item:hover {
+        background-color: rgba(255,255,255,0.1);
+        color: white;
+    }
+} 

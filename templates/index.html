@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Главная{% endblock %}
+
+{% block main_class %}pt-5{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section bg-primary text-white py-5">
+    <div class="container">
+        <div class="row align-items-center min-vh-75">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4">ТОО «SKB GROUP»</h1>
+                <p class="lead mb-4">Официальный представитель ООО «Челябинского Компрессорного Завода» в Республике Казахстан. Реализация и техническое обслуживание качественного компрессорного оборудования.</p>
+                <div class="d-flex gap-3">
+                    <a href="{{ url_for('equipment') }}" class="btn btn-light btn-lg">Предохранительные клапаны</a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-outline-light btn-lg">Связаться с Нами</a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <i class="fas fa-cogs fa-10x opacity-75"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Company Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h2 class="display-5 fw-bold">О Компании SKB GROUP</h2>
+                <p class="lead text-muted">Надежный партнер в области компрессорного оборудования</p>
+            </div>
+        </div>
+        
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6">
+                <h3 class="fw-bold mb-4">Наша Специализация</h3>
+                <p class="mb-4">Компрессорные установки производства ООО «Челябинского Компрессорного Завода» - качественное и надежное оборудование для различных отраслей промышленности.</p>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Реализация компрессорного оборудования</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Техническое обслуживание и сервис</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Пусконаладочные работы</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Проектирование решений</li>
+                </ul>
+            </div>
+            <div class="col-lg-6 text-center">
+                <i class="fas fa-industry fa-8x text-primary opacity-75"></i>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
