@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, flash, redirect, url_for
+from flask_mail import Mail, Message
 import os
 
 # Initialize Flask application
@@ -7,12 +8,8 @@ app = Flask(__name__)
 # Configuration
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'dev-secret-key-change-in-production'
 
-
-# Add to app.py
-from flask_mail import Mail, Message
-
 # Configure email
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'  # or your email provider
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = os.environ.get('EMAIL_USER')
@@ -25,16 +22,6 @@ def index():
     """Home page route"""
     return render_template('index.html')
 
-@app.route('/about')
-def about():
-    """About page route"""
-    return render_template('about.html')
-
-@app.route('/services')
-def services():
-    """Services page route"""
-    return render_template('services.html')
-
 @app.route('/equipment')
 def equipment():
     """Equipment page route"""
@@ -42,6 +29,7 @@ def equipment():
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
+    """Contact page route with form handling"""
     if request.method == 'POST':
         name = request.form.get('name')
         email = request.form.get('email')
@@ -50,25 +38,31 @@ def contact():
         service = request.form.get('service')
         
         if name and email and message:
-            # Send email
-            msg = Message(
-                subject=f'New Contact Form - {name}',
-                sender=os.environ.get('EMAIL_USER'),
-                recipients=['skb.group@mail.ru'],
-                body=f"""
-                New message from website:
-                
-                Name: {name}
-                Email: {email}
-                Company: {company or 'Not specified'}
-                Service: {service or 'Not specified'}
-                
-                Message:
-                {message}
-                """
-            )
-            mail.send(msg)
-            flash('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.', 'success')
+            try:
+                # Send email
+                msg = Message(
+                    subject=f'New Contact Form - {name}',
+                    sender=os.environ.get('EMAIL_USER'),
+                    recipients=['skb.group@mail.ru'],
+                    body=f"""
+                    New message from website:
+                    
+                    Name: {name}
+                    Email: {email}
+                    Company: {company or 'Not specified'}
+                    Service: {service or 'Not specified'}
+                    
+                    Message:
+                    {message}
+                    """
+                )
+                mail.send(msg)
+                flash('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.', 'success')
+            except Exception as e:
+                # Log error and show user-friendly message
+                print(f"Email error: {e}")
+                flash('Произошла ошибка при отправке сообщения. Пожалуйста, свяжитесь с нами напрямую.', 'error')
+            
             return redirect(url_for('contact'))
         else:
             flash('Пожалуйста, заполните все обязательные поля.', 'error')
@@ -88,5 +82,7 @@ def internal_error(error):
 
 # Run application
 if __name__ == '__main__':
-    # Debug mode - only for development
-    app.run(debug=True, host='0.0.0.0', port=5000) 
+    # Production-ready configuration
+    port = int(os.environ.get('PORT', 5000))
+    debug_mode = os.environ.get('FLASK_ENV') != 'production'
+    app.run(debug=debug_mode, host='0.0.0.0', port=port) 
