@@ -7,6 +7,18 @@ app = Flask(__name__)
 # Configuration
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'dev-secret-key-change-in-production'
 
+
+# Add to app.py
+from flask_mail import Mail, Message
+
+# Configure email
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'  # or your email provider
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = os.environ.get('EMAIL_USER')
+app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASS')
+mail = Mail(app)
+
 # Routes
 @app.route('/')
 def index():
@@ -30,20 +42,36 @@ def equipment():
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    """Contact page route with form handling"""
     if request.method == 'POST':
-        # Get form data
         name = request.form.get('name')
         email = request.form.get('email')
         message = request.form.get('message')
+        company = request.form.get('company')
+        service = request.form.get('service')
         
-        # Basic form validation
         if name and email and message:
-            # Here you would typically send an email or save to database
-            flash('Thank you for your message! We will get back to you soon.', 'success')
+            # Send email
+            msg = Message(
+                subject=f'New Contact Form - {name}',
+                sender=os.environ.get('EMAIL_USER'),
+                recipients=['skb.group@mail.ru'],
+                body=f"""
+                New message from website:
+                
+                Name: {name}
+                Email: {email}
+                Company: {company or 'Not specified'}
+                Service: {service or 'Not specified'}
+                
+                Message:
+                {message}
+                """
+            )
+            mail.send(msg)
+            flash('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.', 'success')
             return redirect(url_for('contact'))
         else:
-            flash('Please fill in all fields.', 'error')
+            flash('Пожалуйста, заполните все обязательные поля.', 'error')
     
     return render_template('contact.html')
 
